@@ -1,0 +1,48 @@
+ip: <span>
+type: <span>
+continent_code: <span>
+continent_name: <span>
+country_code: <span>
+country_name: <span>
+region_code: <span>
+region_name: <span>
+city: <span>
+zip: <span>
+latitude: <span>
+longitude: <span>
+location: <span> obj
+    geoname_id: <span>
+    capital: <span>
+    languages: <span> obj
+        code: <span>
+        name: <span>
+        native: <span>
+    country_flag: <span>
+    country_flag_emoji: <span>
+    country_flag_emoji_unicode: <span>
+    calling_code: <span>
+    is_eu: <span>
+time_zone: <span> obj
+    id: <span>
+    current_time: <span>
+    gmt_offset: <span>
+    code: <span>
+    is_daylight_saving: <span>
+currency: <span> obj
+    code: <span>
+    name: <span>
+    plural: <span>
+    symbol: <span>
+    symbol_native: <span>
+connection: <span> obj
+    asn: <span>
+    isp: <span>
+security: <span> obj
+    is_proxy: <span>
+    proxy_type: <span>
+    is_crawler: <span>
+    crawler_name: <span>
+    crawler_type: <span>
+    is_tor: <span>
+    threat_level: <span>
+    threat_types: <span>
