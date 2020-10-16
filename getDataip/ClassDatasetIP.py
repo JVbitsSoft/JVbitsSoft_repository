@@ -122,7 +122,7 @@ class DatasetIP():
             dict_elements[element_key] = raw_elements[:raw_elements.find('<')]
 
         if limit:
-            return 'Limit exceeded...'
+            return 'Limit exceeded, use of VPN recommended ...'
         else:
             return dict_elements
     def get_dataset_with_api(self, email, password, ip=None, hostname=None, time_zone=None, currency=None, security=None):
