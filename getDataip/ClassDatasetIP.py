@@ -116,9 +116,7 @@ class DatasetIP():
                 limit = True
             else:
                 b = False
-        print(limit)
-        print(var)
-
+                
         if limit:
             return 'Limit exceeded, use of VPN recommended ...'
         else:
