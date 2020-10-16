@@ -44,16 +44,16 @@ try:
         print(dict_elements)
     elif args[1] == '-h' or args[1] == 'help':
         print('''
-        getDataip.py <int> // required: <int>
-        getDataip.py 0
-        getDataip.py 1 <ip> <countdown> // optional: <ip> <countdown>, '-n' for void
-        getDataip.py 2 <email> <password> <ip> <hostname> <time_zone> <currency> <security> // required: <email>, <password>, optional: <ip>, <hostname>, <time_zone>, <currency>, <security>
-          module    // true or false
-        <hostname>  = '-h'  or '-n'
-        <time_zone> = '-tz' or   =
-        <currency>  = '-c'  or   =
-        <security>  = '-s'  or   =
-        exemple: 'getDataip.py 2 anything@gmail.com anypassword 0.0.0.0 -h -tz -c -s'
+    getDataip.py <int> // required: <int>
+    getDataip.py 0
+    getDataip.py 1 <ip> <countdown> // optional: <ip> <countdown>, '-n' for void
+    getDataip.py 2 <email> <password> <ip> <hostname> <time_zone> <currency> <security> // required: <email>, <password>, optional: <ip>, <hostname>, <time_zone>, <currency>, <security>
+      module    // true or false
+    <hostname>  = '-h'  or '-n'
+    <time_zone> = '-tz' or   =
+    <currency>  = '-c'  or   =
+    <security>  = '-s'  or   =
+    exemple: 'getDataip.py 2 anything@gmail.com anypassword 0.0.0.0 -h -tz -c -s'
         ''')
 except Exception as e:
     print('using command "getDataip.py -h" or "getDataip.py help".')

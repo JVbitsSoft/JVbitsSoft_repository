@@ -18,7 +18,7 @@ class DatasetIP():
         self.options.add_argument('window-size=1920x1480')
         user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36'
         self.options.add_argument(f'user-agent={user_agent}')
-        self.options.headless = True
+        self.options.headless = False
     def get_external_ipv4(self):
         ip = self.external_ip
         now = datetime.now()
@@ -26,21 +26,6 @@ class DatasetIP():
     def get_dataset_without_api(self, ip=None, countdown=10):
         self.chrome_browser = webdriver.Chrome(executable_path=r'./chromedriver.exe', chrome_options=self.options)
         self.chrome_browser.get('https://ipstack.com/')
-
-        limit = False
-        b = True
-        while b:
-            var = self.chrome_browser.page_source
-            var = var.find('<div class="rows"><div class="row string" data-object="ip"><i></i>ip: <span>')
-            try:
-                #<div class="i_body error rate_limit_exceeded"></div>
-                self.chrome_browser.find_elements_by_xpath('//div[@class="i_body error rate_limit_exceeded"]')
-                b = False
-                limit = True
-            except Exception as e:
-                pass
-            if var != -1:
-                b = False
         
         if ip != None:
             self.ip_w0 = ip
@@ -49,7 +34,7 @@ class DatasetIP():
             #<label for="ipcheck_submit">Look Up</label>
             self.chrome_browser.find_element_by_xpath('//label[@for="ipcheck_submit"]').click()
 
-            #<input type="text" name="iptocheck" placeholder="Enter an IP Address" value="45.172.127.111">
+            #<input type="text" name="iptocheck" placeholder="Enter an IP Address" value="exemple_ip">
             self.chrome_browser.find_element_by_xpath('//input[@placeholder="Enter an IP Address"]')
             enter_ip = self.chrome_browser.find_element_by_xpath('//input[@name="iptocheck"]')
             enter_ip.click()
@@ -59,6 +44,7 @@ class DatasetIP():
             enter_ip.send_keys(Keys.ENTER)
             time.sleep(self.countdown)
 
+        #<div class="rows"><div class="row string" data-object="ip"><i></i> ...//... </span></div></div></div></div>
         html = self.chrome_browser.page_source
         
         self.chrome_browser.close()
@@ -120,6 +106,18 @@ class DatasetIP():
             element_span = element_key+'<span>'
             raw_elements = raw_elements[raw_elements.find(element_span)+len(element_span):]
             dict_elements[element_key] = raw_elements[:raw_elements.find('<')]
+
+        limit = False
+        b = True
+        while b:
+            var = html.find('<div class="i_body error rate_limit_exceeded"></div>')
+            if var != -1:
+                b = False
+                limit = True
+            else:
+                b = False
+        print(limit)
+        print(var)
 
         if limit:
             return 'Limit exceeded, use of VPN recommended ...'
