@@ -12,5 +12,5 @@ https://github.com/JVbitsSoft/getDataip_repository.git
 command to download using git
 
 '''
-git clone
+git clone https://github.com/JVbitsSoft/getDataip_repository.git
 '''
